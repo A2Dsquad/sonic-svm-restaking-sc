@@ -1,3 +1,3 @@
-# SVM Restaking Contracts
+# Sonic SVM staking program
 
-Testnet program ID: G1F1kEPFSkfmxCNcfjCjR317bj9o3LTjWb9cYVVh3QUb
+
