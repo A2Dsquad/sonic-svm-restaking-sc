@@ -40,6 +40,13 @@
 
 - 8mYkiWJF23Znv77Erfck3cQvUPqttdGPxu2FmBAsfBS
 
+## Working flow
+
+1. Restaking
+![Restaking flow](https://cdn.dorahacks.io/static/files/19293a90d5ec0b9fedee70443dba7013.png)
+
+2. AVSs
+![AVS working flow](https://cdn.dorahacks.io/static/files/19293b860320354483b8890443c93a3f.png)
 ## Structure
 
 ### Main components
