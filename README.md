@@ -42,11 +42,49 @@
 
 ## Working flow
 
-1. Restaking
+1. **Staking & Restaking**
+
+a. Asset Deposit: Stakers deposit assets into the protocol through the staker_manager.
+
+b. Share Increase: Stakers' shares are increased based on their deposits.
+
+c. Operator Delegation: Stakers delegate operators, who secure AVSs (Actively Validated Services).
+
+d. Forwarding to Staking Pool: The staker_manager forwards the deposit to the staking_pool and updates the total shares of the asset pool.
+
+e. Operator Share Increase: The shares of delegated operators increase proportionally to the stakers' shares.
+
 ![Restaking flow](https://cdn.dorahacks.io/static/files/19293a90d5ec0b9fedee70443dba7013.png)
 
-2. AVSs
-![AVS working flow](https://cdn.dorahacks.io/static/files/19293b860320354483b8890443c93a3f.png)
+
+2. **Withdrawal**
+
+a. Queueing a Withdrawal:
+Stakers submit withdrawal requests via the withdrawal module.
+Each staked asset has its own minimum delay period.
+
+b. Withdrawal Completion: Withdrawals are only executed once the delay period for all assets has passed.
+
+c. Slashing Consideration:
+The slasher module checks for any slashing penalties applied to the operator managing the assets.
+Slashing impacts the staker’s withdrawable amount.
+
+d. Withdrawable Shares Calculation: Final withdrawal amounts are adjusted based on slashing and the staker’s remaining shares.
+
+e. Completion: Once delays and penalties are resolved, assets are returned to the staker.
+This system ensures secure and fair withdrawals while accounting for slashing penalties and delay periods.
+
+
+3. **AVS working flows**
+
+a. Task Completion: AVS operators perform tasks, such as verifying cross-chain transactions.
+
+b. Signature Aggregation: An aggregator collects BLS signatures from AVSs and submits them to the service_manager.
+
+c. Task Verification: The service_manager verifies the completion of tasks, validates the aggregated BLS signature, and records successful completions.
+This ensures secure and efficient validation of AVS tasks through BLS signature aggregation and verification.
+
+![AVS working flow](https://cdn.dorahacks.io/static/files/19293bc81a56a255d2b874142e0ac426.png)
 ## Structure
 
 ### Main components
